@@ -17,6 +17,7 @@
 package com.hannesdorfmann.mosby3.mvp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -131,6 +132,11 @@ public abstract class MvpFragment<V extends MvpView, P extends MvpPresenter<V>> 
   @Override public void onAttach(Activity activity) {
     super.onAttach(activity);
     getMvpDelegate().onAttach(activity);
+  }
+
+  @Override public void onAttach(Context context) {
+    super.onAttach(context);
+    getMvpDelegate().onAttach(context);
   }
 
   @Override public void onDetach() {

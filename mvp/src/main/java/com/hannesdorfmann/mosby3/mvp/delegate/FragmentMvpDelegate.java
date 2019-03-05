@@ -17,10 +17,12 @@
 package com.hannesdorfmann.mosby3.mvp.delegate;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.View;
+
 import com.hannesdorfmann.mosby3.mvp.MvpPresenter;
 import com.hannesdorfmann.mosby3.mvp.MvpView;
 
@@ -40,6 +42,7 @@ import com.hannesdorfmann.mosby3.mvp.MvpView;
  * <li>{@link #onActivityCreated(Bundle)} </li>
  * <li>{@link #onSaveInstanceState(Bundle)} </li>
  * <li>{@link #onAttach(Activity)} </li>
+ * <li>{@link #onAttach(Context)} </li>
  * <li>{@link #onDetach()}</li>
  * <li></li>
  * </ul>
@@ -109,7 +112,15 @@ public interface FragmentMvpDelegate<V extends MvpView, P extends MvpPresenter<V
    *
    * @param activity The activity the fragment is attached to
    */
+  @Deprecated
   void onAttach(Activity activity);
+
+  /**
+   * Must be called from {@link Fragment#onAttach(Context)}
+   *
+   * @param context The context the fragment is attached to
+   */
+  void onAttach(Context context);
 
   /**
    * Must be called from {@link Fragment#onDetach()}
