@@ -6,7 +6,7 @@ apply from: '../findbugs.gradle'
 android {
   compileSdkVersion rootProject.ext.compileSdkVersion
   buildToolsVersion rootProject.ext.buildToolsVersion
-
+  defaultPublishConfig "release"
   compileOptions {
     sourceCompatibility rootProject.ext.javaSourceCompatibility
     targetCompatibility rootProject.ext.javaTargetCompatibility
